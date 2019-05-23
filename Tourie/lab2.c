@@ -145,21 +145,19 @@ bool TryStrToDouble(char* s)
 	int num_of_chars = 0;
 	for (int i = 0; i < length; i++)
 	{
-		if (s[i] >= '1' || s[i] <= '9' || s[i] == '.' || s[i] == ',')
+		if (s[i] < '0' || s[i] > '9')
 		{
-			if (s[i] == '.' || s[i] == ',')
-			{
-				s[i] = '.';
-				num_of_chars++;
-			}
-				
+			return false;
+		}
+		if (s[i] == '.' || s[i] == ',')
+		{
+			s[i] = '.';
+			num_of_chars++;
 			if (num_of_chars > 1)
 			{
 				return false;
 			}
-			continue;
 		}
-		return false;
 	}
 	return true;
 }
