@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-
 struct Car
 {
 	double price;
@@ -24,6 +23,7 @@ bool TryStrToDouble(char* s);
 
 int main()
 {
+	// ----------------------------------check input--------------------------------------
 	do
 	{
 		double price_double;
@@ -93,8 +93,8 @@ int main()
 				printf("Incorrect input!\n");
 			}
 		} while (1);
-
-		Car obj(price_double, year_double, capacity_double, distance_double);
+		// ----------------------------------------------end of input-------
+		Car obj(price_double, year_double, capacity_double, distance_double); // creating an object of car
 
 		double transit_cost = 0.5 * obj.distance;
 		double release_cost = 0;
